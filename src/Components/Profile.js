@@ -7,8 +7,6 @@ import 'typeface-nunito';
 import 'typeface-poppins';
 import '../vendor/bootstrap/css/bootstrap.min.css';
 import $ from 'jquery';
-import { userFullDetails } from "../redux/Store";
-import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import Aside from './Aside';
 
@@ -24,7 +22,6 @@ function Profile() {
     const[updatedimg,setUpdatedimg] = useState();
     const[profileImage,setProfileImage] = useState(null)
 
-    const dispatch = useDispatch();
 
     const[editPro,setEditPro] = useState(false) 
 
