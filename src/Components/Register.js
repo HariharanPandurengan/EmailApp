@@ -121,7 +121,7 @@ function Register() {
                             <div className="col-12">
                                 <div className="form-check">
                                     <input className="form-check-input" name="terms" type="checkbox" value="" onChange={()=>setIsChecked(!isChecked)} id="acceptTerms" />
-                                    <label className="form-check-label" >I agree and accept the <a href="#">terms and conditions</a></label>
+                                    <label className="form-check-label" >I agree and accept the <a href="rt">terms and conditions</a></label>
                                     <div className="invalid-feedback">You must agree before submitting.</div>
                                 </div>
                             </div>

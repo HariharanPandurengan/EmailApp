@@ -16,23 +16,20 @@ function Compose() {
   const storedEmail = JSON.parse(sessionStorage.getItem('email'));
   const initialEmail = initialEmailFromRedux || storedEmail;
 
-  const [email, setEmail] = useState({ userEmail: initialEmail });
-  const { userEmail } = email;
-
 
   useEffect(() => {
-    sessionStorage.setItem('email', JSON.stringify(userEmail));
-  }, [userEmail]);
+    sessionStorage.setItem('email', JSON.stringify(initialEmail));
+  }, [initialEmail]);
 
   const data = {
-    from: userEmail,
+    from: initialEmail,
     to: to,
     subject: subject,
     status: '',
   };
 
   function emailValidation(email){
-    return /^\w+([\-]?\w+)*@\w+([\-]?\w+)*(\.\w{2,3})+$/.test(email);
+    return /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/.test(email);
   }
 
   function composemail(event) {
@@ -78,7 +75,7 @@ function Compose() {
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Compose a mail</h5>
-            <h6 id="yourmail">From : {userEmail} </h6>
+            <h6 id="yourmail">From : {initialEmail} </h6>
             <form
               className="row g-3"
               id="composeemail"

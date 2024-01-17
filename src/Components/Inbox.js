@@ -24,8 +24,6 @@ function Inbox() {
     const initialEmailFromRedux = useSelector((state) => state.user.email);
     const storedEmail = JSON.parse(sessionStorage.getItem('email'));
     const initialEmail = initialEmailFromRedux || storedEmail;
-    const [email, setEmail] = useState({ userEmail: initialEmail });
-    const { userEmail } = email;
     // console.log(userEmail)
 
     const initialUsernameFromRedux = useSelector((state) => state.user.username);
@@ -95,8 +93,9 @@ function Inbox() {
       const dataa = [];
       data.map(list=>{
         // console.log({status:list.status})
-        if (list.toEmailID === userEmail && !list.status.includes(initialUsername)){
+        if (list.toEmailID === initialEmail && !list.status.includes(initialUsername)){
             dataa.push({From : list.fromEmailID, To : list.toEmailID, Subject : list.subject, Date : list.date, id:list.id})
+            return '';
         }}) 
 
     return ( 

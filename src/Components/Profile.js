@@ -67,7 +67,7 @@ function Profile() {
                 console.error(error,xhr,status);
             }
         });
-    },[])
+    }, []);
 
     
     const[editPro,setEditPro] = useState(false) 

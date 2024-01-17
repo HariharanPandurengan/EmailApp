@@ -50,7 +50,6 @@ function Login() {
                             alert("wrong password")
                         }
                         else if(data.message === "loginSuccess"){
-                            let img = (data.image === null || data.image === '') ? 'null' : data.image;
                             const details = {
                                 username : data.username,
                                 email : data.email,
