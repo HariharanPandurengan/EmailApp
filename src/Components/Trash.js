@@ -1,11 +1,11 @@
 import {React,useEffect,useState} from 'react';
-import axios from 'axios';
 import '../App.css';
 import Header from './Header';
 import Footer from './Footer';
 import { useSelector } from "react-redux";
 import Aside from './Aside';
 import DataTable from "react-data-table-component"
+import $ from 'jquery';
 
 
 function Trash() {
@@ -17,15 +17,18 @@ function Trash() {
 
     useEffect(() => {
         
-        axios.get('https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/web-query.php')
-          .then(response => {
-           
-            setData([...response.data.data]);
-          })
-          .catch(error => {
-           
-            console.error('Error fetching data:', error);
-          });
+        $.ajax({
+            url: 'https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/query.php',
+            type: 'POST',
+            data:{getMails:true},
+            success: function(response) {
+                console.log(response);
+                setData([...response.data]);
+            },
+            error: function(error) {
+                console.error('Error fetching data:', error);
+            }
+        });
       }, []);
 
       const a = [
