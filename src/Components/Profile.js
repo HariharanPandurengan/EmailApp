@@ -26,11 +26,13 @@ function Profile() {
     const[editPro,setEditPro] = useState(false) 
 
     const storedUser = JSON.parse(sessionStorage.getItem('user'));
-    const initialUsername =  storedUser.userName;
+    const initialUsernamee =  storedUser.userName;
 
     const storedEmail = JSON.parse(sessionStorage.getItem('email'));
 
     useEffect(()=>{
+        const storedUser = JSON.parse(sessionStorage.getItem('user'));
+        const initialUsername =  storedUser.userName;
         const formData = new FormData();
         formData.append('username', initialUsername);
         formData.append('getting', true);
@@ -53,6 +55,8 @@ function Profile() {
                     image : d.image
                 }
 
+                console.log(d)
+
                 setUpdatedFullname(details.fullname)
                 setUpdatedCountry(details.country)
                 setUpdatedAddress(details.address)
@@ -63,7 +67,7 @@ function Profile() {
                 console.error(error,xhr,status);
             }
         });
-    }, [initialUsername]);
+    }, []);
 
    
     function handleUpdate(event) {
@@ -75,7 +79,7 @@ function Profile() {
         formData.append('country', updatedCountry);
         formData.append('address', updatedAddress);
         formData.append('phone', updatedPhone);
-        formData.append('username', initialUsername);
+        formData.append('username', initialUsernamee);
         
         // Check if a new image file is selected
         if (profileImage) {
@@ -155,7 +159,7 @@ function Profile() {
                             <div className="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                                 <img src={updatedimg === ''?'https://t4.ftcdn.net/jpg/00/97/00/09/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg':`data:image/jpeg;base64,${updatedimg}`} alt="Profile"/>
-                                <h2>{initialUsername}</h2>
+                                <h2>{initialUsernamee}</h2>
                                 <h3>{storedEmail}</h3>
 
                             </div>
