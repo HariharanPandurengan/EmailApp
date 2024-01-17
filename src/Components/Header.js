@@ -126,10 +126,10 @@ function Header() {
                                     navigate("/")
                                     dispatch(logout())
                                     }}>
-                                <a href="degfb" className="dropdown-item d-flex align-items-center ps-4">
+                                <div className="dropdown-item d-flex align-items-center ps-4">
                                         <i className="bi bi-box-arrow-right"></i>
                                         <span>Sign Out</span>
-                                </a>
+                                </div>
                             </li>
 
                         </ul>
