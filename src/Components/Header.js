@@ -112,7 +112,7 @@ function Header() {
                             </li>
 
                             <li>
-                                <Link to="/profile" className="dropdown-item d-flex align-items-center ps-4">
+                                <Link style={{cursor:"pointer"}} to="/profile" className="dropdown-item d-flex align-items-center ps-4">
                                     <i className="bi bi-person"></i>
                                     <span>My Profile</span>
                                 </Link>
@@ -126,7 +126,7 @@ function Header() {
                                     navigate("/")
                                     dispatch(logout())
                                     }}>
-                                <div className="dropdown-item d-flex align-items-center ps-4">
+                                <div style={{cursor:"pointer"}} className="dropdown-item d-flex align-items-center ps-4">
                                         <i className="bi bi-box-arrow-right"></i>
                                         <span>Sign Out</span>
                                 </div>
