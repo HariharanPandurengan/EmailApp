@@ -41,7 +41,7 @@ function Inbox() {
           type: 'POST',
           data:{getMails:true},
           success: function(response) {
-              console.log(JSON.parse(response));
+              console.log(response);
               setData([...response.data.data]);
           },
           error: function(error) {
