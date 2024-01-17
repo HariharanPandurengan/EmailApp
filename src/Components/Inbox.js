@@ -36,15 +36,18 @@ function Inbox() {
     }, []); 
   
     function fetchData() {
-      axios.get('https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/web-query.php')
-        .then(response => {
-           console.log(response)
-          setData([...response.data.data]);
-         
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
+        $.ajax({
+          url: 'https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/web-query.php',
+          type: 'GET',
+          success: function(response) {
+              console.log(response);
+              setData([...response.data.data]);
+          },
+          error: function(error) {
+              console.error('Error fetching data:', error);
+          }
+      });
+    
     }
 
       function handleDelete(value){

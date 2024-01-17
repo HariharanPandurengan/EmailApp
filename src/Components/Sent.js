@@ -97,7 +97,6 @@ function Sent() {
       const dataa = [];
       data.map(list=>{
         if (list.fromEmailID === initialEmail && !list.status.includes(initialUsername)){
-          console.log({From : list.fromEmailID,To : list.toEmailID,Subject : list.subject ,Date : list.date,id:list.id})
             dataa.push({From : list.fromEmailID,To : list.toEmailID,Subject : list.subject ,Date : list.date,id:list.id})
         }
         return null;
