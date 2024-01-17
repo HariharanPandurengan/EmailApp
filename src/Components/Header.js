@@ -16,8 +16,6 @@ function Header() {
     const[profile,setProfile] = useState(false)
     const navigate = useNavigate();
 
-    const[popupClass,setPopupClass] = useState('popupDN')
-
     const location = useLocation(); 
     
         if(location.pathname === '/'){

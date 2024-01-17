@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route, useNavigate,Router } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import Login from './Components/Login';
 import Register from './Components/Register';
 import Compose from './Components/Compose';
@@ -8,7 +8,6 @@ import Sent from './Components/Sent';
 import Trash from './Components/Trash';
 import { Provider } from 'react-redux';
 import { store } from "./redux/Store";
-import { useEffect } from 'react';
 import Profile from './Components/Profile';
 import ProtectedRoute from './Components/ProtectedRoute';
 

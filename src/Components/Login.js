@@ -5,9 +5,8 @@ import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import { updateUserDetails } from "../redux/Store";
 import { logout } from '../redux/Store';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from 'react';
-import axios from 'axios';
+import { useDispatch } from "react-redux";
+
 
 function Login() {
     // http://localhost/jobmate-webservices/index.php/api_consultancy/getAllConsultantcyAndConsultancyCandidate/

@@ -32,7 +32,7 @@ function Compose() {
   };
 
   function emailValidation(email){
-    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    return /^\w+([\-]?\w+)*@\w+([\-]?\w+)*(\.\w{2,3})+$/.test(email);
   }
 
   function composemail(event) {
