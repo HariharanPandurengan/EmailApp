@@ -26,13 +26,14 @@ function Profile() {
 
     const dispatch = useDispatch();
 
+    const[editPro,setEditPro] = useState(false) 
 
+    const storedUser = JSON.parse(sessionStorage.getItem('user'));
+    const initialUsername =  storedUser.userName;
+
+    const storedEmail = JSON.parse(sessionStorage.getItem('email'));
 
     useEffect(()=>{
-        const storedUser = JSON.parse(sessionStorage.getItem('user'));
-    
-        const initialUsername =  storedUser.userName;
-
         const formData = new FormData();
         formData.append('username', initialUsername);
         formData.append('getting', true);
@@ -60,22 +61,12 @@ function Profile() {
                 setUpdatedAddress(details.address)
                 setUpdatedPhone(details.phone)
                 setUpdatedimg(details.image)
-
-                dispatch(userFullDetails(details))
             },
             error: function(xhr, status, error) {
                 console.error(error,xhr,status);
             }
         });
-    }, []);
-
-    
-    const[editPro,setEditPro] = useState(false) 
-
-    const storedUser = JSON.parse(sessionStorage.getItem('user'));
-    
-    const initialUsername =  storedUser.userName;
-    const storedEmail = JSON.parse(sessionStorage.getItem('email'));
+    }, [initialUsername]);
 
    
     function handleUpdate(event) {
