@@ -21,6 +21,34 @@ function Header() {
         if(location.pathname === '/'){
             dispatch(logout())
         }
+
+        useEffect(()=>{
+
+            const formData = new FormData();
+            formData.append('username', initialUsername);
+            formData.append('getting', true);
+    
+            $.ajax({
+                url: 'https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/updateProfile.php', 
+                type: 'POST',
+                data: formData, 
+                processData:false,
+                contentType:false,
+                cache:false,
+                success: function(data) {
+                    const d = JSON.parse(data)
+                    const details = {
+                        image : d.image
+                    }
+                    setUpdatedimg(details.image)
+                },
+                error: function(xhr, status, error) {
+                    console.error(error,xhr,status);
+                }
+            });
+            
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []); // empty dependency array for running once on mount
     
     const initialUsernameFromRedux = useSelector((state) => state.user.username);
 
@@ -35,33 +63,6 @@ function Header() {
     }, [initialUsername]);
 
     const storedEmail = JSON.parse(sessionStorage.getItem('email'));
-
-    
-    useEffect(()=>{
-
-        const formData = new FormData();
-        formData.append('username', initialUsername);
-        formData.append('getting', true);
-
-        $.ajax({
-            url: 'https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/updateProfile.php', 
-            type: 'POST',
-            data: formData, 
-            processData:false,
-            contentType:false,
-            cache:false,
-            success: function(data) {
-                const d = JSON.parse(data)
-                const details = {
-                    image : d.image
-                }
-                setUpdatedimg(details.image)
-            },
-            error: function(xhr, status, error) {
-                console.error(error,xhr,status);
-            }
-        });
-    },[])
 
     return ( 
         <header id="header" className="header fixed-top d-flex align-items-center">
@@ -87,16 +88,16 @@ function Header() {
                 <ul className="d-flex align-items-center">
 
                     <li className="nav-item d-block d-lg-none">
-                    <a className="nav-link nav-icon search-bar-toggle " href="#">
+                    <a className="nav-link nav-icon search-bar-toggle " href="degfb">
                         <i className="bi bi-search"></i>
                     </a>
                     </li>
 
                     <li className="nav-item dropdown pe-3">
 
-                    <a onClick={()=>{
+                    <a href="degfb" onClick={()=>{
                         profile === false ? setProfile(true) : setProfile(false)
-                    }} className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                    }} className="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
                         <img src={updatedimg === ''?'https://t4.ftcdn.net/jpg/00/97/00/09/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg':`data:image/jpeg;base64,${updatedimg}`} alt="Profile" className="rounded-circle"/>
                         <span className="d-none d-md-block dropdown-toggle ps-2" id="userName">{initialUsername}</span>
                     </a>
