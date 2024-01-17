@@ -41,7 +41,7 @@ function Inbox() {
           data:{getMails:true},
           success: function(response) {
               console.log(response);
-              setData([...response.data.data]);
+              setData([...response.data]);
           },
           error: function(error) {
               console.error('Error fetching data:', error);
