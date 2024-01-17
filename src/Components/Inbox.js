@@ -95,8 +95,10 @@ function Inbox() {
         // console.log({status:list.status})
         if (list.toEmailID === initialEmail && !list.status.includes(initialUsername)){
             dataa.push({From : list.fromEmailID, To : list.toEmailID, Subject : list.subject, Date : list.date, id:list.id})
-            return null;
-        }}) 
+            
+        }
+        return null;
+      }) 
 
     return ( 
         <>

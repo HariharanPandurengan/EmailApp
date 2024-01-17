@@ -51,8 +51,9 @@ function Trash() {
       data.map(list=>{
         if (list.status.includes(initialUsername)){
             dataa.push({From : list.fromEmailID,To : list.toEmailID,Subject : list.subject ,Date : list.date})
-            return null;
-        }})
+        }
+        return null;
+    })
 
     return ( 
         <>

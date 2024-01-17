@@ -126,7 +126,7 @@ function Header() {
                                     navigate("/")
                                     dispatch(logout())
                                     }}>
-                                <a  className="dropdown-item d-flex align-items-center ps-4">
+                                <a href="degfb" className="dropdown-item d-flex align-items-center ps-4">
                                         <i className="bi bi-box-arrow-right"></i>
                                         <span>Sign Out</span>
                                 </a>
