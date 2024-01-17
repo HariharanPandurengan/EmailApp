@@ -39,7 +39,7 @@ function Inbox() {
         $.ajax({
           url: 'https://vervenest.com/demo/trainingtasks/Hariharan/ReactEmailCURDBackend/query.php',
           type: 'POST',
-          data: 'getMail',
+          data:{getMails:true},
           success: function(response) {
               console.log(JSON.parse(response));
               setData([...response.data.data]);
