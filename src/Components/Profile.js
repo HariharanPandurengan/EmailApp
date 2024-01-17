@@ -245,7 +245,7 @@ function Profile() {
                                         <div className="row mb-3">
                                         <label  className="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                         <div className="col-md-8 col-lg-9">
-                                            <input name="fullName" type="text" className="form-control" id="fullName" onChange={(event)=>setUpdatedFullname(event.target.value)} value={updatedFullname === 'null' ? '' : updatedFullname}/>
+                                            <input name="fullName" type="text" className="form-control" id="fullName" onChange={(event)=>setUpdatedFullname(event.target.value)} value={updatedFullname === 'null' ? '' : updatedFullname} placeholder=" --Not Given--"/>
                                         </div>
                                         </div>
 
