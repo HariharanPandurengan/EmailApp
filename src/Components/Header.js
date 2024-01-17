@@ -95,12 +95,12 @@ function Header() {
 
                     <li className="nav-item dropdown pe-3">
 
-                    <a href="degfb" onClick={()=>{
+                    <div  onClick={()=>{
                         profile === false ? setProfile(true) : setProfile(false)
                     }} className="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
                         <img src={updatedimg === ''?'https://t4.ftcdn.net/jpg/00/97/00/09/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg':`data:image/jpeg;base64,${updatedimg}`} alt="Profile" className="rounded-circle"/>
                         <span className="d-none d-md-block dropdown-toggle ps-2" id="userName">{initialUsername}</span>
-                    </a>
+                    </div>
 
                     <ul className={`dropdown-menuu dropdown-menu-end dropdown-menu-arrow ${!profile === true && 'd-none'}`}>
                             <li className="dropdown-header">
