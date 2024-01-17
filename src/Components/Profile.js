@@ -9,6 +9,7 @@ import '../vendor/bootstrap/css/bootstrap.min.css';
 import $ from 'jquery';
 import { useNavigate } from 'react-router-dom';
 import Aside from './Aside';
+import { useSelector } from 'react-redux';
 
 
 function Profile() {
@@ -25,16 +26,18 @@ function Profile() {
 
     const[editPro,setEditPro] = useState(false) 
 
+    const initialUsernameFromRedux = useSelector((state) => state.user.username);
+
     const storedUser = JSON.parse(sessionStorage.getItem('user'));
-    const initialUsernamee =  storedUser.userName;
+    
+    const initialUsernamee = initialUsernameFromRedux || storedUser.userName;
+    console.log(initialUsernamee)
 
     const storedEmail = JSON.parse(sessionStorage.getItem('email'));
 
     useEffect(()=>{
-        const storedUser = JSON.parse(sessionStorage.getItem('user'));
-        const initialUsername =  storedUser.userName;
         const formData = new FormData();
-        formData.append('username', initialUsername);
+        formData.append('username', initialUsernamee);
         formData.append('getting', true);
 
         $.ajax({
@@ -67,7 +70,7 @@ function Profile() {
                 console.error(error,xhr,status);
             }
         });
-    }, []);
+    }, [initialUsernamee]);
 
    
     function handleUpdate(event) {
